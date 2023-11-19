@@ -66,8 +66,8 @@ class _QuestionScreenState extends State<QuestionScreen> {
               child: GestureDetector(
                 child: Image.asset(
                   "assets/images/drawer/buymeacoffee.png",
-                  width: 300.w,
-                  height: 100.h,
+                  width: 350.w,
+                  height: 150.h,
                   fit: BoxFit.fill,
                 ),
                 onTap: () async {
@@ -82,14 +82,14 @@ class _QuestionScreenState extends State<QuestionScreen> {
               padding: const EdgeInsets.all(16.0),
               child: GestureDetector(
                 child: Image.asset(
-                  "assets/images/drawer/codeberg.png",
+                  "assets/images/drawer/github.png",
                   width: 300.w,
                   height: 100.h,
                   fit: BoxFit.fill,
                 ),
                 onTap: () async {
                   const url =
-                      "https://codeberg.org/outterstellar/deutschLernenQuestions";
+                      "https://github.com/outterstellar/deutschQuestions";
                   if (await canLaunchUrl(Uri.parse(url))) {
                     await launchUrl(Uri.parse(url));
                   }

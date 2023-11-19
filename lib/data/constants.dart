@@ -46,7 +46,7 @@ class Constants {
           wrongOption2: "Madchen")
     ],
     2: [
-FillBlank(
+      FillBlank(
           beforeBlank: "Das ist ein ",
           afterBlank: ".",
           answer: "Kartoffel",
@@ -75,7 +75,7 @@ FillBlank(
           wrongOption2: "Madchen")
     ],
     3: [
-FillBlank(
+      FillBlank(
           beforeBlank: "Das ist ein ",
           afterBlank: ".",
           answer: "Kartoffel",
@@ -104,7 +104,7 @@ FillBlank(
           wrongOption2: "Madchen")
     ],
     4: [
-FillBlank(
+      FillBlank(
           beforeBlank: "Das ist ein ",
           afterBlank: ".",
           answer: "Kartoffel",
@@ -133,7 +133,7 @@ FillBlank(
           wrongOption2: "Madchen")
     ],
     5: [
-FillBlank(
+      FillBlank(
           beforeBlank: "Das ist ein ",
           afterBlank: ".",
           answer: "Kartoffel",
@@ -162,7 +162,7 @@ FillBlank(
           wrongOption2: "Madchen")
     ],
     6: [
-FillBlank(
+      FillBlank(
           beforeBlank: "Das ist ein ",
           afterBlank: ".",
           answer: "Kartoffel",
@@ -191,7 +191,7 @@ FillBlank(
           wrongOption2: "Madchen")
     ],
     7: [
-FillBlank(
+      FillBlank(
           beforeBlank: "Das ist ein ",
           afterBlank: ".",
           answer: "Kartoffel",
@@ -220,7 +220,7 @@ FillBlank(
           wrongOption2: "Madchen")
     ],
     8: [
-FillBlank(
+      FillBlank(
           beforeBlank: "Das ist ein ",
           afterBlank: ".",
           answer: "Kartoffel",
@@ -316,27 +316,46 @@ FillBlank(
                                   CupertinoButton(
                                     child: Text("Sonraki"),
                                     onPressed: () {
-                                      
                                       solvedQuestions[findUnitOfQuestion(
                                               question: question)]!
                                           .add(question);
-                                          if(Constants.solvedQuestions[findUnitOfQuestion(question: question)]!.length ==
-        Constants.unitQuestionList[findUnitOfQuestion(question: question)]!.length){
-                                            showDialog(context: context, builder: (context)=>AlertDialog(
-        title: Text("Bütün Soruları Bitirdiniz, Tebrikler!"),
-        actions: [CupertinoButton(child: Text("Teşekkürler"), onPressed: (){
-          Navigator.of(context).push(MaterialPageRoute(builder: (context)=>MainScreen()));
-        })],
-      ));
-                                          }else{
-                                      Navigator.of(context).push(
-                                          MaterialPageRoute(
-                                              builder: (context) =>
-                                                  QuestionScreen(
-                                                      unit: findUnitOfQuestion(
-                                                          question:
-                                                              question))));
-                            }
+                                      if (Constants
+                                              .solvedQuestions[
+                                                  findUnitOfQuestion(
+                                                      question: question)]!
+                                              .length ==
+                                          Constants
+                                              .unitQuestionList[
+                                                  findUnitOfQuestion(
+                                                      question: question)]!
+                                              .length) {
+                                        showDialog(
+                                            context: context,
+                                            builder: (context) => AlertDialog(
+                                                  title: Text(
+                                                      "Bütün Soruları Bitirdiniz, Tebrikler!"),
+                                                  actions: [
+                                                    CupertinoButton(
+                                                        child:
+                                                            Text("Teşekkürler"),
+                                                        onPressed: () {
+                                                          Navigator.of(context).push(
+                                                              MaterialPageRoute(
+                                                                  builder:
+                                                                      (context) =>
+                                                                          MainScreen()));
+                                                        })
+                                                  ],
+                                                ));
+                                      } else {
+                                        Navigator.of(context).push(
+                                            MaterialPageRoute(
+                                                builder: (context) =>
+                                                    QuestionScreen(
+                                                        unit: findUnitOfQuestion(
+                                                            question:
+                                                                question))));
+                                      }
                                     },
                                   )
                                 ],
@@ -357,23 +376,43 @@ FillBlank(
                                       solvedQuestions[findUnitOfQuestion(
                                               question: question)]!
                                           .add(question);
-                                          if(Constants.solvedQuestions[findUnitOfQuestion(question: question)]!.length ==
-        Constants.unitQuestionList[findUnitOfQuestion(question: question)]!.length){
-                                            showDialog(context: context, builder: (context)=>AlertDialog(
-        title: Text("Bütün Soruları Bitirdiniz, Tebrikler!"),
-        actions: [CupertinoButton(child: Text("Teşekkürler"), onPressed: (){
-          Navigator.of(context).push(MaterialPageRoute(builder: (context)=>MainScreen()));
-        })],
-      ));
-                                          }else{
-                                      Navigator.of(context).push(
-                                          MaterialPageRoute(
-                                              builder: (context) =>
-                                                  QuestionScreen(
-                                                      unit: findUnitOfQuestion(
-                                                          question:
-                                                              question))));
-                            }
+                                      if (Constants
+                                              .solvedQuestions[
+                                                  findUnitOfQuestion(
+                                                      question: question)]!
+                                              .length ==
+                                          Constants
+                                              .unitQuestionList[
+                                                  findUnitOfQuestion(
+                                                      question: question)]!
+                                              .length) {
+                                        showDialog(
+                                            context: context,
+                                            builder: (context) => AlertDialog(
+                                                  title: Text(
+                                                      "Bütün Soruları Bitirdiniz, Tebrikler!"),
+                                                  actions: [
+                                                    CupertinoButton(
+                                                        child:
+                                                            Text("Teşekkürler"),
+                                                        onPressed: () {
+                                                          Navigator.of(context).push(
+                                                              MaterialPageRoute(
+                                                                  builder:
+                                                                      (context) =>
+                                                                          MainScreen()));
+                                                        })
+                                                  ],
+                                                ));
+                                      } else {
+                                        Navigator.of(context).push(
+                                            MaterialPageRoute(
+                                                builder: (context) =>
+                                                    QuestionScreen(
+                                                        unit: findUnitOfQuestion(
+                                                            question:
+                                                                question))));
+                                      }
                                     },
                                   )
                                 ],
@@ -390,26 +429,38 @@ FillBlank(
                     heroTag: "2",
                     child: Icon(Icons.arrow_forward_ios_outlined),
                     onPressed: () {
-                                      solvedQuestions[findUnitOfQuestion(
-                                              question: question)]!
-                                          .add(question);
-                                          if(Constants.solvedQuestions[findUnitOfQuestion(question: question)]!.length ==
-        Constants.unitQuestionList[findUnitOfQuestion(question: question)]!.length){
-                                            showDialog(context: context, builder: (context)=>AlertDialog(
-        title: Text("Bütün Soruları Bitirdiniz, Tebrikler!"),
-        actions: [CupertinoButton(child: Text("Teşekkürler"), onPressed: (){
-          Navigator.of(context).push(MaterialPageRoute(builder: (context)=>MainScreen()));
-        })],
-      ));
-                                          }else{
-                                      Navigator.of(context).push(
-                                          MaterialPageRoute(
-                                              builder: (context) =>
-                                                  QuestionScreen(
-                                                      unit: findUnitOfQuestion(
-                                                          question:
-                                                              question))));
-                            }},
+                      solvedQuestions[findUnitOfQuestion(question: question)]!
+                          .add(question);
+                      if (Constants
+                              .solvedQuestions[
+                                  findUnitOfQuestion(question: question)]!
+                              .length ==
+                          Constants
+                              .unitQuestionList[
+                                  findUnitOfQuestion(question: question)]!
+                              .length) {
+                        showDialog(
+                            context: context,
+                            builder: (context) => AlertDialog(
+                                  title: Text(
+                                      "Bütün Soruları Bitirdiniz, Tebrikler!"),
+                                  actions: [
+                                    CupertinoButton(
+                                        child: Text("Teşekkürler"),
+                                        onPressed: () {
+                                          Navigator.of(context).push(
+                                              MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      MainScreen()));
+                                        })
+                                  ],
+                                ));
+                      } else {
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => QuestionScreen(
+                                unit: findUnitOfQuestion(question: question))));
+                      }
+                    },
                   ),
                 )
               ],
@@ -476,23 +527,44 @@ FillBlank(
                                       solvedQuestions[findUnitOfQuestion(
                                               question: question)]!
                                           .add(question);
-                                          if(Constants.solvedQuestions[findUnitOfQuestion(question: question)]!.length ==
-        Constants.unitQuestionList[findUnitOfQuestion(question: question)]!.length){
-                                            showDialog(context: context, builder: (context)=>AlertDialog(
-        title: Text("Bütün Soruları Bitirdiniz, Tebrikler!"),
-        actions: [CupertinoButton(child: Text("Teşekkürler"), onPressed: (){
-          Navigator.of(context).push(MaterialPageRoute(builder: (context)=>MainScreen()));
-        })],
-      ));
-                                          }else{
-                                      Navigator.of(context).push(
-                                          MaterialPageRoute(
-                                              builder: (context) =>
-                                                  QuestionScreen(
-                                                      unit: findUnitOfQuestion(
-                                                          question:
-                                                              question))));
-                            }},
+                                      if (Constants
+                                              .solvedQuestions[
+                                                  findUnitOfQuestion(
+                                                      question: question)]!
+                                              .length ==
+                                          Constants
+                                              .unitQuestionList[
+                                                  findUnitOfQuestion(
+                                                      question: question)]!
+                                              .length) {
+                                        showDialog(
+                                            context: context,
+                                            builder: (context) => AlertDialog(
+                                                  title: Text(
+                                                      "Bütün Soruları Bitirdiniz, Tebrikler!"),
+                                                  actions: [
+                                                    CupertinoButton(
+                                                        child:
+                                                            Text("Teşekkürler"),
+                                                        onPressed: () {
+                                                          Navigator.of(context).push(
+                                                              MaterialPageRoute(
+                                                                  builder:
+                                                                      (context) =>
+                                                                          MainScreen()));
+                                                        })
+                                                  ],
+                                                ));
+                                      } else {
+                                        Navigator.of(context).push(
+                                            MaterialPageRoute(
+                                                builder: (context) =>
+                                                    QuestionScreen(
+                                                        unit: findUnitOfQuestion(
+                                                            question:
+                                                                question))));
+                                      }
+                                    },
                                   )
                                 ],
                               );
@@ -512,23 +584,44 @@ FillBlank(
                                       solvedQuestions[findUnitOfQuestion(
                                               question: question)]!
                                           .add(question);
-                                          if(Constants.solvedQuestions[findUnitOfQuestion(question: question)]!.length ==
-        Constants.unitQuestionList[findUnitOfQuestion(question: question)]!.length){
-                                            showDialog(context: context, builder: (context)=>AlertDialog(
-        title: Text("Bütün Soruları Bitirdiniz, Tebrikler!"),
-        actions: [CupertinoButton(child: Text("Teşekkürler"), onPressed: (){
-          Navigator.of(context).push(MaterialPageRoute(builder: (context)=>MainScreen()));
-        })],
-      ));
-                                          }else{
-                                      Navigator.of(context).push(
-                                          MaterialPageRoute(
-                                              builder: (context) =>
-                                                  QuestionScreen(
-                                                      unit: findUnitOfQuestion(
-                                                          question:
-                                                              question))));
-                            }},
+                                      if (Constants
+                                              .solvedQuestions[
+                                                  findUnitOfQuestion(
+                                                      question: question)]!
+                                              .length ==
+                                          Constants
+                                              .unitQuestionList[
+                                                  findUnitOfQuestion(
+                                                      question: question)]!
+                                              .length) {
+                                        showDialog(
+                                            context: context,
+                                            builder: (context) => AlertDialog(
+                                                  title: Text(
+                                                      "Bütün Soruları Bitirdiniz, Tebrikler!"),
+                                                  actions: [
+                                                    CupertinoButton(
+                                                        child:
+                                                            Text("Teşekkürler"),
+                                                        onPressed: () {
+                                                          Navigator.of(context).push(
+                                                              MaterialPageRoute(
+                                                                  builder:
+                                                                      (context) =>
+                                                                          MainScreen()));
+                                                        })
+                                                  ],
+                                                ));
+                                      } else {
+                                        Navigator.of(context).push(
+                                            MaterialPageRoute(
+                                                builder: (context) =>
+                                                    QuestionScreen(
+                                                        unit: findUnitOfQuestion(
+                                                            question:
+                                                                question))));
+                                      }
+                                    },
                                   )
                                 ],
                               );
@@ -544,27 +637,37 @@ FillBlank(
                     heroTag: "4",
                     child: Icon(Icons.arrow_forward_ios_outlined),
                     onPressed: () {
-                      
-                                      solvedQuestions[findUnitOfQuestion(
-                                              question: question)]!
-                                          .add(question);
-                                          if(Constants.solvedQuestions[findUnitOfQuestion(question: question)]!.length ==
-        Constants.unitQuestionList[findUnitOfQuestion(question: question)]!.length){
-                                            showDialog(context: context, builder: (context)=>AlertDialog(
-        title: Text("Bütün Soruları Bitirdiniz, Tebrikler!"),
-        actions: [CupertinoButton(child: Text("Teşekkürler"), onPressed: (){
-          Navigator.of(context).push(MaterialPageRoute(builder: (context)=>MainScreen()));
-        })],
-      ));
-                                          }else{
-                                      Navigator.of(context).push(
-                                          MaterialPageRoute(
-                                              builder: (context) =>
-                                                  QuestionScreen(
-                                                      unit: findUnitOfQuestion(
-                                                          question:
-                                                              question))));
-                            }
+                      solvedQuestions[findUnitOfQuestion(question: question)]!
+                          .add(question);
+                      if (Constants
+                              .solvedQuestions[
+                                  findUnitOfQuestion(question: question)]!
+                              .length ==
+                          Constants
+                              .unitQuestionList[
+                                  findUnitOfQuestion(question: question)]!
+                              .length) {
+                        showDialog(
+                            context: context,
+                            builder: (context) => AlertDialog(
+                                  title: Text(
+                                      "Bütün Soruları Bitirdiniz, Tebrikler!"),
+                                  actions: [
+                                    CupertinoButton(
+                                        child: Text("Teşekkürler"),
+                                        onPressed: () {
+                                          Navigator.of(context).push(
+                                              MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      MainScreen()));
+                                        })
+                                  ],
+                                ));
+                      } else {
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => QuestionScreen(
+                                unit: findUnitOfQuestion(question: question))));
+                      }
                     },
                   ),
                 )
@@ -688,27 +791,47 @@ FillBlank(
                                   CupertinoButton(
                                     child: Text("Sonraki"),
                                     onPressed: () {
-                                      
                                       solvedQuestions[findUnitOfQuestion(
                                               question: question)]!
                                           .add(question);
-                                          if(Constants.solvedQuestions[findUnitOfQuestion(question: question)]!.length ==
-        Constants.unitQuestionList[findUnitOfQuestion(question: question)]!.length){
-                                            showDialog(context: context, builder: (context)=>AlertDialog(
-        title: Text("Bütün Soruları Bitirdiniz, Tebrikler!"),
-        actions: [CupertinoButton(child: Text("Teşekkürler"), onPressed: (){
-          Navigator.of(context).push(MaterialPageRoute(builder: (context)=>MainScreen()));
-        })],
-      ));
-                                          }else{
-                                      Navigator.of(context).push(
-                                          MaterialPageRoute(
-                                              builder: (context) =>
-                                                  QuestionScreen(
-                                                      unit: findUnitOfQuestion(
-                                                          question:
-                                                              question))));
-                            }},
+                                      if (Constants
+                                              .solvedQuestions[
+                                                  findUnitOfQuestion(
+                                                      question: question)]!
+                                              .length ==
+                                          Constants
+                                              .unitQuestionList[
+                                                  findUnitOfQuestion(
+                                                      question: question)]!
+                                              .length) {
+                                        showDialog(
+                                            context: context,
+                                            builder: (context) => AlertDialog(
+                                                  title: Text(
+                                                      "Bütün Soruları Bitirdiniz, Tebrikler!"),
+                                                  actions: [
+                                                    CupertinoButton(
+                                                        child:
+                                                            Text("Teşekkürler"),
+                                                        onPressed: () {
+                                                          Navigator.of(context).push(
+                                                              MaterialPageRoute(
+                                                                  builder:
+                                                                      (context) =>
+                                                                          MainScreen()));
+                                                        })
+                                                  ],
+                                                ));
+                                      } else {
+                                        Navigator.of(context).push(
+                                            MaterialPageRoute(
+                                                builder: (context) =>
+                                                    QuestionScreen(
+                                                        unit: findUnitOfQuestion(
+                                                            question:
+                                                                question))));
+                                      }
+                                    },
                                   )
                                 ],
                               );
@@ -724,27 +847,46 @@ FillBlank(
                                   CupertinoButton(
                                     child: Text("Sonraki"),
                                     onPressed: () {
-                                      
                                       solvedQuestions[findUnitOfQuestion(
                                               question: question)]!
                                           .add(question);
-                                          if(Constants.solvedQuestions[findUnitOfQuestion(question: question)]!.length ==
-        Constants.unitQuestionList[findUnitOfQuestion(question: question)]!.length){
-                                            showDialog(context: context, builder: (context)=>AlertDialog(
-        title: Text("Bütün Soruları Bitirdiniz, Tebrikler!"),
-        actions: [CupertinoButton(child: Text("Teşekkürler"), onPressed: (){
-          Navigator.of(context).push(MaterialPageRoute(builder: (context)=>MainScreen()));
-        })],
-      ));
-                                          }else{
-                                      Navigator.of(context).push(
-                                          MaterialPageRoute(
-                                              builder: (context) =>
-                                                  QuestionScreen(
-                                                      unit: findUnitOfQuestion(
-                                                          question:
-                                                              question))));
-                            }
+                                      if (Constants
+                                              .solvedQuestions[
+                                                  findUnitOfQuestion(
+                                                      question: question)]!
+                                              .length ==
+                                          Constants
+                                              .unitQuestionList[
+                                                  findUnitOfQuestion(
+                                                      question: question)]!
+                                              .length) {
+                                        showDialog(
+                                            context: context,
+                                            builder: (context) => AlertDialog(
+                                                  title: Text(
+                                                      "Bütün Soruları Bitirdiniz, Tebrikler!"),
+                                                  actions: [
+                                                    CupertinoButton(
+                                                        child:
+                                                            Text("Teşekkürler"),
+                                                        onPressed: () {
+                                                          Navigator.of(context).push(
+                                                              MaterialPageRoute(
+                                                                  builder:
+                                                                      (context) =>
+                                                                          MainScreen()));
+                                                        })
+                                                  ],
+                                                ));
+                                      } else {
+                                        Navigator.of(context).push(
+                                            MaterialPageRoute(
+                                                builder: (context) =>
+                                                    QuestionScreen(
+                                                        unit: findUnitOfQuestion(
+                                                            question:
+                                                                question))));
+                                      }
                                     },
                                   )
                                 ],
