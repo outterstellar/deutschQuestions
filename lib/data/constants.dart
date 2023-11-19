@@ -46,88 +46,207 @@ class Constants {
           wrongOption2: "Madchen")
     ],
     2: [
+FillBlank(
+          beforeBlank: "Das ist ein ",
+          afterBlank: ".",
+          answer: "Kartoffel",
+          imageName: "kartoffel.jpg"),
       FillBlank(
-          beforeBlank: "Merhaba Bu Bir Test Sorusudur",
-          afterBlank: "Cevap, Anaksagoras",
-          answer: "Anaksagoras",
-          imageName: "anaksagoras.png"),
+          beforeBlank: "Das sind ",
+          afterBlank: ".",
+          answer: "Blumenkohle",
+          imageName: "blumenkohle.jpg"),
       FillBlank(
-          beforeBlank: "Merhaba Bu Bir Test Sorusudur",
-          afterBlank: "Cevap, Anaksagoras",
-          answer: "Anaksagoras",
-          imageName: "anaksagoras.png"),
+          beforeBlank: "Apfel ist ein ", afterBlank: ".  ", answer: "Obst"),
+      TestQuestion(
+          questionText: "Das ist ein .....",
+          answer: "Apfel",
+          wrongOption1: "Aprikose",
+          wrongOption2: "Wassermelone"),
+      TestQuestion(
+          questionText: "Ein Junge ist ein ....",
+          answer: "Mann",
+          wrongOption1: "Frau",
+          wrongOption2: "Madchen"),
+      TestQuestion(
+          questionText: "Ein Madchen ist ein ....",
+          answer: "Frau",
+          wrongOption1: "Mann",
+          wrongOption2: "Madchen")
     ],
     3: [
+FillBlank(
+          beforeBlank: "Das ist ein ",
+          afterBlank: ".",
+          answer: "Kartoffel",
+          imageName: "kartoffel.jpg"),
+      FillBlank(
+          beforeBlank: "Das sind ",
+          afterBlank: ".",
+          answer: "Blumenkohle",
+          imageName: "blumenkohle.jpg"),
+      FillBlank(
+          beforeBlank: "Apfel ist ein ", afterBlank: ".  ", answer: "Obst"),
       TestQuestion(
-          questionText: "Ich bin eine -------",
-          answer: "Junge",
-          wrongOption1: "Apfel",
+          questionText: "Das ist ein .....",
+          answer: "Apfel",
+          wrongOption1: "Aprikose",
+          wrongOption2: "Wassermelone"),
+      TestQuestion(
+          questionText: "Ein Junge ist ein ....",
+          answer: "Mann",
+          wrongOption1: "Frau",
           wrongOption2: "Madchen"),
       TestQuestion(
-          questionText: "Ich bin eine -------",
-          answer: "Junge",
-          wrongOption1: "Apfel",
-          wrongOption2: "Madchen"),
+          questionText: "Ein Madchen ist ein ....",
+          answer: "Frau",
+          wrongOption1: "Mann",
+          wrongOption2: "Madchen")
     ],
     4: [
+FillBlank(
+          beforeBlank: "Das ist ein ",
+          afterBlank: ".",
+          answer: "Kartoffel",
+          imageName: "kartoffel.jpg"),
+      FillBlank(
+          beforeBlank: "Das sind ",
+          afterBlank: ".",
+          answer: "Blumenkohle",
+          imageName: "blumenkohle.jpg"),
+      FillBlank(
+          beforeBlank: "Apfel ist ein ", afterBlank: ".  ", answer: "Obst"),
       TestQuestion(
-          questionText: "Ich bin eine -------",
-          answer: "Junge",
-          wrongOption1: "Apfel",
+          questionText: "Das ist ein .....",
+          answer: "Apfel",
+          wrongOption1: "Aprikose",
+          wrongOption2: "Wassermelone"),
+      TestQuestion(
+          questionText: "Ein Junge ist ein ....",
+          answer: "Mann",
+          wrongOption1: "Frau",
           wrongOption2: "Madchen"),
       TestQuestion(
-          questionText: "Ich bin eine -------",
-          answer: "Junge",
-          wrongOption1: "Apfel",
-          wrongOption2: "Madchen"),
+          questionText: "Ein Madchen ist ein ....",
+          answer: "Frau",
+          wrongOption1: "Mann",
+          wrongOption2: "Madchen")
     ],
     5: [
+FillBlank(
+          beforeBlank: "Das ist ein ",
+          afterBlank: ".",
+          answer: "Kartoffel",
+          imageName: "kartoffel.jpg"),
+      FillBlank(
+          beforeBlank: "Das sind ",
+          afterBlank: ".",
+          answer: "Blumenkohle",
+          imageName: "blumenkohle.jpg"),
+      FillBlank(
+          beforeBlank: "Apfel ist ein ", afterBlank: ".  ", answer: "Obst"),
       TestQuestion(
-          questionText: "Ich bin eine -------",
-          answer: "Junge",
-          wrongOption1: "Apfel",
+          questionText: "Das ist ein .....",
+          answer: "Apfel",
+          wrongOption1: "Aprikose",
+          wrongOption2: "Wassermelone"),
+      TestQuestion(
+          questionText: "Ein Junge ist ein ....",
+          answer: "Mann",
+          wrongOption1: "Frau",
           wrongOption2: "Madchen"),
       TestQuestion(
-          questionText: "Ich bin eine -------",
-          answer: "Junge",
-          wrongOption1: "Apfel",
-          wrongOption2: "Madchen"),
+          questionText: "Ein Madchen ist ein ....",
+          answer: "Frau",
+          wrongOption1: "Mann",
+          wrongOption2: "Madchen")
     ],
     6: [
+FillBlank(
+          beforeBlank: "Das ist ein ",
+          afterBlank: ".",
+          answer: "Kartoffel",
+          imageName: "kartoffel.jpg"),
+      FillBlank(
+          beforeBlank: "Das sind ",
+          afterBlank: ".",
+          answer: "Blumenkohle",
+          imageName: "blumenkohle.jpg"),
+      FillBlank(
+          beforeBlank: "Apfel ist ein ", afterBlank: ".  ", answer: "Obst"),
       TestQuestion(
-          questionText: "Ich bin eine -------",
-          answer: "Junge",
-          wrongOption1: "Apfel",
+          questionText: "Das ist ein .....",
+          answer: "Apfel",
+          wrongOption1: "Aprikose",
+          wrongOption2: "Wassermelone"),
+      TestQuestion(
+          questionText: "Ein Junge ist ein ....",
+          answer: "Mann",
+          wrongOption1: "Frau",
           wrongOption2: "Madchen"),
       TestQuestion(
-          questionText: "Ich bin eine -------",
-          answer: "Junge",
-          wrongOption1: "Apfel",
-          wrongOption2: "Madchen"),
+          questionText: "Ein Madchen ist ein ....",
+          answer: "Frau",
+          wrongOption1: "Mann",
+          wrongOption2: "Madchen")
     ],
     7: [
+FillBlank(
+          beforeBlank: "Das ist ein ",
+          afterBlank: ".",
+          answer: "Kartoffel",
+          imageName: "kartoffel.jpg"),
+      FillBlank(
+          beforeBlank: "Das sind ",
+          afterBlank: ".",
+          answer: "Blumenkohle",
+          imageName: "blumenkohle.jpg"),
+      FillBlank(
+          beforeBlank: "Apfel ist ein ", afterBlank: ".  ", answer: "Obst"),
       TestQuestion(
-          questionText: "Ich bin eine -------",
-          answer: "Junge",
-          wrongOption1: "Apfel",
+          questionText: "Das ist ein .....",
+          answer: "Apfel",
+          wrongOption1: "Aprikose",
+          wrongOption2: "Wassermelone"),
+      TestQuestion(
+          questionText: "Ein Junge ist ein ....",
+          answer: "Mann",
+          wrongOption1: "Frau",
           wrongOption2: "Madchen"),
       TestQuestion(
-          questionText: "Ich bin eine -------",
-          answer: "Junge",
-          wrongOption1: "Apfel",
-          wrongOption2: "Madchen"),
+          questionText: "Ein Madchen ist ein ....",
+          answer: "Frau",
+          wrongOption1: "Mann",
+          wrongOption2: "Madchen")
     ],
     8: [
+FillBlank(
+          beforeBlank: "Das ist ein ",
+          afterBlank: ".",
+          answer: "Kartoffel",
+          imageName: "kartoffel.jpg"),
+      FillBlank(
+          beforeBlank: "Das sind ",
+          afterBlank: ".",
+          answer: "Blumenkohle",
+          imageName: "blumenkohle.jpg"),
+      FillBlank(
+          beforeBlank: "Apfel ist ein ", afterBlank: ".  ", answer: "Obst"),
       TestQuestion(
-          questionText: "Ich bin eine -------",
-          answer: "Junge",
-          wrongOption1: "Apfel",
+          questionText: "Das ist ein .....",
+          answer: "Apfel",
+          wrongOption1: "Aprikose",
+          wrongOption2: "Wassermelone"),
+      TestQuestion(
+          questionText: "Ein Junge ist ein ....",
+          answer: "Mann",
+          wrongOption1: "Frau",
           wrongOption2: "Madchen"),
       TestQuestion(
-          questionText: "Ich bin eine -------",
-          answer: "Junge",
-          wrongOption1: "Apfel",
-          wrongOption2: "Madchen"),
+          questionText: "Ein Madchen ist ein ....",
+          answer: "Frau",
+          wrongOption1: "Mann",
+          wrongOption2: "Madchen")
     ],
   };
   static Map<int, List<Question>> solvedQuestions = {

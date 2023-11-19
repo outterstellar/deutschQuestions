@@ -1,4 +1,3 @@
-import 'package:almanca/data/constants.dart';
 import 'package:almanca/screen/mainscreen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
