@@ -10,7 +10,7 @@ void main() {
 }
 
 class MaterialAppWidget extends StatelessWidget {
-  
+
   const MaterialAppWidget({super.key});
   @override
   Widget build(BuildContext context) {
@@ -21,4 +21,4 @@ class MaterialAppWidget extends StatelessWidget {
     );
     });
   }
-}
+} 
