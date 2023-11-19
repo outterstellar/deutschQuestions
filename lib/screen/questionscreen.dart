@@ -5,6 +5,7 @@ import 'dart:math';
 import 'package:almanca/data/constants.dart';
 import 'package:almanca/data/models/question.dart';
 import 'package:almanca/screen/mainscreen.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -26,8 +27,31 @@ class _QuestionScreenState extends State<QuestionScreen> {
     super.initState();
     random = Random();
     unitNum = widget.unit;
-    selectedQuestion = Constants.unitQuestionList[unitNum]![
-        random.nextInt(Constants.unitQuestionList[unitNum]!.length - 1)];
+    if (Constants.solvedQuestions[unitNum]!.length !=
+        Constants.unitQuestionList[unitNum]!.length) {
+          print("Listeler eşit değil");
+        
+          while (true) {
+        selectedQuestion = Constants.unitQuestionList[unitNum]![
+            random.nextInt(Constants.unitQuestionList[unitNum]!.length)];
+        if (Constants.solvedQuestions[unitNum]!.contains(selectedQuestion)) {
+          continue;
+        } else {
+          break;
+        }
+        }
+    } else {
+      Constants.solvedQuestions[unitNum]!.clear();
+      while (true) {
+        selectedQuestion = Constants.unitQuestionList[unitNum]![
+            random.nextInt(Constants.unitQuestionList[unitNum]!.length)];
+        if (Constants.solvedQuestions[unitNum]!.contains(selectedQuestion)) {
+          continue;
+        } else {
+          break;
+        }
+        }
+    }
   }
 
   @override
@@ -41,8 +65,8 @@ class _QuestionScreenState extends State<QuestionScreen> {
               padding: const EdgeInsets.all(16.0),
               child: GestureDetector(
                 child: Image.asset(
-                  "assets/images/buymeacoffee.png",
-                  width: 350.w,
+                  "assets/images/drawer/buymeacoffee.png",
+                  width: 300.w,
                   height: 100.h,
                   fit: BoxFit.fill,
                 ),
@@ -50,8 +74,49 @@ class _QuestionScreenState extends State<QuestionScreen> {
                   const url = "https://buymeacoffee.com/developer86";
                   if (await canLaunchUrl(Uri.parse(url))) {
                     await launchUrl(Uri.parse(url));
-                  } else {
-                    throw 'Could not launch $url';
+                  }
+                },
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: GestureDetector(
+                child: Image.asset(
+                  "assets/images/drawer/codeberg.png",
+                  width: 300.w,
+                  height: 100.h,
+                  fit: BoxFit.fill,
+                ),
+                onTap: () async {
+                  const url =
+                      "https://codeberg.org/outterstellar/deutschLernenQuestions";
+                  if (await canLaunchUrl(Uri.parse(url))) {
+                    await launchUrl(Uri.parse(url));
+                  }
+                },
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: GestureDetector(
+                child: Container(
+                  width: 300.w,
+                  height: 100.h,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(12).w,
+                      border:
+                          Border.all(width: 2.w, color: Constants.mainColor)),
+                  child: Center(
+                      child: Text(
+                    "More On My Website",
+                    style:
+                        TextStyle(color: Constants.mainColor, fontSize: 20.sp),
+                  )),
+                ),
+                onTap: () async {
+                  const url = "https://dogacevcin.com";
+                  if (await canLaunchUrl(Uri.parse(url))) {
+                    await launchUrl(Uri.parse(url));
                   }
                 },
               ),

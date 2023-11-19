@@ -1,6 +1,7 @@
 import 'package:almanca/data/models/fillblank.dart';
 import 'package:almanca/data/models/question.dart';
 import 'package:almanca/data/models/testquestion.dart';
+import 'package:almanca/screen/mainscreen.dart';
 import 'package:almanca/screen/questionscreen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -17,25 +18,44 @@ class Constants {
   static Map<int, List<Question>> unitQuestionList = {
     1: [
       FillBlank(
-          beforeBlank: "Merhaba Bu Bir Test Sorusudur",
-          afterBlank: "Cevap, Anaksagoras",
-          answer: "Anaksagoras"),
+          beforeBlank: "Das ist ein ",
+          afterBlank: ".",
+          answer: "Kartoffel",
+          imageName: "kartoffel.jpg"),
       FillBlank(
-          beforeBlank: "Merhaba Bu Bir Test Sorusudur",
-          afterBlank: "Cevap, Anaksagoras",
-          answer: "Anaksagoras")
+          beforeBlank: "Das sind ",
+          afterBlank: ".",
+          answer: "Blumenkohle",
+          imageName: "blumenkohle.jpg"),
+      FillBlank(
+          beforeBlank: "Apfel ist ein ", afterBlank: ".  ", answer: "Obst"),
+      TestQuestion(
+          questionText: "Das ist ein .....",
+          answer: "Apfel",
+          wrongOption1: "Aprikose",
+          wrongOption2: "Wassermelone"),
+      TestQuestion(
+          questionText: "Ein Junge ist ein ....",
+          answer: "Mann",
+          wrongOption1: "Frau",
+          wrongOption2: "Madchen"),
+      TestQuestion(
+          questionText: "Ein Madchen ist ein ....",
+          answer: "Frau",
+          wrongOption1: "Mann",
+          wrongOption2: "Madchen")
     ],
     2: [
       FillBlank(
           beforeBlank: "Merhaba Bu Bir Test Sorusudur",
           afterBlank: "Cevap, Anaksagoras",
           answer: "Anaksagoras",
-          imageLink: "assets/images/anaksagoras.png"),
+          imageName: "anaksagoras.png"),
       FillBlank(
           beforeBlank: "Merhaba Bu Bir Test Sorusudur",
           afterBlank: "Cevap, Anaksagoras",
           answer: "Anaksagoras",
-          imageLink: "assets/images/anaksagoras.png"),
+          imageName: "anaksagoras.png"),
     ],
     3: [
       TestQuestion(
@@ -110,10 +130,20 @@ class Constants {
           wrongOption2: "Madchen"),
     ],
   };
+  static Map<int, List<Question>> solvedQuestions = {
+    1: [],
+    2: [],
+    3: [],
+    4: [],
+    5: [],
+    6: [],
+    7: [],
+    8: [],
+  };
   static selectBodyForQuestionType(
       {required BuildContext context, required Question question}) {
     if (question.runtimeType == FillBlank) {
-      if ((question as FillBlank).imageLink == null) {
+      if ((question as FillBlank).imageName == null) {
         TextEditingController controller = TextEditingController();
         return Column(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -123,7 +153,7 @@ class Constants {
               width: returnDeviceSize(context: context).width / 5,
               child: Text(
                 question.beforeBlank +
-                    ("_" * question.answer.length) +
+                    ("." * question.answer.length) +
                     question.afterBlank,
                 style: TextStyle(fontSize: 35.sp),
                 maxLines: 5,
@@ -167,6 +197,19 @@ class Constants {
                                   CupertinoButton(
                                     child: Text("Sonraki"),
                                     onPressed: () {
+                                      
+                                      solvedQuestions[findUnitOfQuestion(
+                                              question: question)]!
+                                          .add(question);
+                                          if(Constants.solvedQuestions[findUnitOfQuestion(question: question)]!.length ==
+        Constants.unitQuestionList[findUnitOfQuestion(question: question)]!.length){
+                                            showDialog(context: context, builder: (context)=>AlertDialog(
+        title: Text("Bütün Soruları Bitirdiniz, Tebrikler!"),
+        actions: [CupertinoButton(child: Text("Teşekkürler"), onPressed: (){
+          Navigator.of(context).push(MaterialPageRoute(builder: (context)=>MainScreen()));
+        })],
+      ));
+                                          }else{
                                       Navigator.of(context).push(
                                           MaterialPageRoute(
                                               builder: (context) =>
@@ -174,6 +217,7 @@ class Constants {
                                                       unit: findUnitOfQuestion(
                                                           question:
                                                               question))));
+                            }
                                     },
                                   )
                                 ],
@@ -191,6 +235,18 @@ class Constants {
                                   CupertinoButton(
                                     child: Text("Sonraki"),
                                     onPressed: () {
+                                      solvedQuestions[findUnitOfQuestion(
+                                              question: question)]!
+                                          .add(question);
+                                          if(Constants.solvedQuestions[findUnitOfQuestion(question: question)]!.length ==
+        Constants.unitQuestionList[findUnitOfQuestion(question: question)]!.length){
+                                            showDialog(context: context, builder: (context)=>AlertDialog(
+        title: Text("Bütün Soruları Bitirdiniz, Tebrikler!"),
+        actions: [CupertinoButton(child: Text("Teşekkürler"), onPressed: (){
+          Navigator.of(context).push(MaterialPageRoute(builder: (context)=>MainScreen()));
+        })],
+      ));
+                                          }else{
                                       Navigator.of(context).push(
                                           MaterialPageRoute(
                                               builder: (context) =>
@@ -198,6 +254,7 @@ class Constants {
                                                       unit: findUnitOfQuestion(
                                                           question:
                                                               question))));
+                            }
                                     },
                                   )
                                 ],
@@ -214,10 +271,26 @@ class Constants {
                     heroTag: "2",
                     child: Icon(Icons.arrow_forward_ios_outlined),
                     onPressed: () {
-                      Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => QuestionScreen(
-                              unit: findUnitOfQuestion(question: question))));
-                    },
+                                      solvedQuestions[findUnitOfQuestion(
+                                              question: question)]!
+                                          .add(question);
+                                          if(Constants.solvedQuestions[findUnitOfQuestion(question: question)]!.length ==
+        Constants.unitQuestionList[findUnitOfQuestion(question: question)]!.length){
+                                            showDialog(context: context, builder: (context)=>AlertDialog(
+        title: Text("Bütün Soruları Bitirdiniz, Tebrikler!"),
+        actions: [CupertinoButton(child: Text("Teşekkürler"), onPressed: (){
+          Navigator.of(context).push(MaterialPageRoute(builder: (context)=>MainScreen()));
+        })],
+      ));
+                                          }else{
+                                      Navigator.of(context).push(
+                                          MaterialPageRoute(
+                                              builder: (context) =>
+                                                  QuestionScreen(
+                                                      unit: findUnitOfQuestion(
+                                                          question:
+                                                              question))));
+                            }},
                   ),
                 )
               ],
@@ -230,7 +303,7 @@ class Constants {
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             Image.asset(
-              question.imageLink!,
+              "assets/images/" + question.imageName!,
               fit: BoxFit.scaleDown,
               height: returnDeviceSize(context: context).height / 5,
               width: returnDeviceSize(context: context).width / 5,
@@ -241,7 +314,7 @@ class Constants {
               child: Center(
                 child: Text(
                   question.beforeBlank +
-                      ("_" * question.answer.length) +
+                      ("." * question.answer.length) +
                       question.afterBlank,
                   style: TextStyle(fontSize: 35.sp),
                   maxLines: 5,
@@ -281,6 +354,18 @@ class Constants {
                                   CupertinoButton(
                                     child: Text("Sonraki"),
                                     onPressed: () {
+                                      solvedQuestions[findUnitOfQuestion(
+                                              question: question)]!
+                                          .add(question);
+                                          if(Constants.solvedQuestions[findUnitOfQuestion(question: question)]!.length ==
+        Constants.unitQuestionList[findUnitOfQuestion(question: question)]!.length){
+                                            showDialog(context: context, builder: (context)=>AlertDialog(
+        title: Text("Bütün Soruları Bitirdiniz, Tebrikler!"),
+        actions: [CupertinoButton(child: Text("Teşekkürler"), onPressed: (){
+          Navigator.of(context).push(MaterialPageRoute(builder: (context)=>MainScreen()));
+        })],
+      ));
+                                          }else{
                                       Navigator.of(context).push(
                                           MaterialPageRoute(
                                               builder: (context) =>
@@ -288,7 +373,7 @@ class Constants {
                                                       unit: findUnitOfQuestion(
                                                           question:
                                                               question))));
-                                    },
+                            }},
                                   )
                                 ],
                               );
@@ -305,6 +390,18 @@ class Constants {
                                   CupertinoButton(
                                     child: Text("Sonraki"),
                                     onPressed: () {
+                                      solvedQuestions[findUnitOfQuestion(
+                                              question: question)]!
+                                          .add(question);
+                                          if(Constants.solvedQuestions[findUnitOfQuestion(question: question)]!.length ==
+        Constants.unitQuestionList[findUnitOfQuestion(question: question)]!.length){
+                                            showDialog(context: context, builder: (context)=>AlertDialog(
+        title: Text("Bütün Soruları Bitirdiniz, Tebrikler!"),
+        actions: [CupertinoButton(child: Text("Teşekkürler"), onPressed: (){
+          Navigator.of(context).push(MaterialPageRoute(builder: (context)=>MainScreen()));
+        })],
+      ));
+                                          }else{
                                       Navigator.of(context).push(
                                           MaterialPageRoute(
                                               builder: (context) =>
@@ -312,7 +409,7 @@ class Constants {
                                                       unit: findUnitOfQuestion(
                                                           question:
                                                               question))));
-                                    },
+                            }},
                                   )
                                 ],
                               );
@@ -328,9 +425,27 @@ class Constants {
                     heroTag: "4",
                     child: Icon(Icons.arrow_forward_ios_outlined),
                     onPressed: () {
-                      Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => QuestionScreen(
-                              unit: findUnitOfQuestion(question: question))));
+                      
+                                      solvedQuestions[findUnitOfQuestion(
+                                              question: question)]!
+                                          .add(question);
+                                          if(Constants.solvedQuestions[findUnitOfQuestion(question: question)]!.length ==
+        Constants.unitQuestionList[findUnitOfQuestion(question: question)]!.length){
+                                            showDialog(context: context, builder: (context)=>AlertDialog(
+        title: Text("Bütün Soruları Bitirdiniz, Tebrikler!"),
+        actions: [CupertinoButton(child: Text("Teşekkürler"), onPressed: (){
+          Navigator.of(context).push(MaterialPageRoute(builder: (context)=>MainScreen()));
+        })],
+      ));
+                                          }else{
+                                      Navigator.of(context).push(
+                                          MaterialPageRoute(
+                                              builder: (context) =>
+                                                  QuestionScreen(
+                                                      unit: findUnitOfQuestion(
+                                                          question:
+                                                              question))));
+                            }
                     },
                   ),
                 )
@@ -340,7 +455,7 @@ class Constants {
         );
       }
     } else {
-      if ((question as TestQuestion).imageLink == null) {
+      if ((question as TestQuestion).imageName == null) {
         return Column(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
@@ -371,7 +486,7 @@ class Constants {
           children: [
             Center(
               child: Image.asset(
-                question.imageLink!,
+                "assets/images/" + question.imageName!,
                 fit: BoxFit.scaleDown,
                 height: returnDeviceSize(context: context).height / 2.5,
                 width: returnDeviceSize(context: context).width / 4,
@@ -454,6 +569,19 @@ class Constants {
                                   CupertinoButton(
                                     child: Text("Sonraki"),
                                     onPressed: () {
+                                      
+                                      solvedQuestions[findUnitOfQuestion(
+                                              question: question)]!
+                                          .add(question);
+                                          if(Constants.solvedQuestions[findUnitOfQuestion(question: question)]!.length ==
+        Constants.unitQuestionList[findUnitOfQuestion(question: question)]!.length){
+                                            showDialog(context: context, builder: (context)=>AlertDialog(
+        title: Text("Bütün Soruları Bitirdiniz, Tebrikler!"),
+        actions: [CupertinoButton(child: Text("Teşekkürler"), onPressed: (){
+          Navigator.of(context).push(MaterialPageRoute(builder: (context)=>MainScreen()));
+        })],
+      ));
+                                          }else{
                                       Navigator.of(context).push(
                                           MaterialPageRoute(
                                               builder: (context) =>
@@ -461,7 +589,7 @@ class Constants {
                                                       unit: findUnitOfQuestion(
                                                           question:
                                                               question))));
-                                    },
+                            }},
                                   )
                                 ],
                               );
@@ -477,6 +605,19 @@ class Constants {
                                   CupertinoButton(
                                     child: Text("Sonraki"),
                                     onPressed: () {
+                                      
+                                      solvedQuestions[findUnitOfQuestion(
+                                              question: question)]!
+                                          .add(question);
+                                          if(Constants.solvedQuestions[findUnitOfQuestion(question: question)]!.length ==
+        Constants.unitQuestionList[findUnitOfQuestion(question: question)]!.length){
+                                            showDialog(context: context, builder: (context)=>AlertDialog(
+        title: Text("Bütün Soruları Bitirdiniz, Tebrikler!"),
+        actions: [CupertinoButton(child: Text("Teşekkürler"), onPressed: (){
+          Navigator.of(context).push(MaterialPageRoute(builder: (context)=>MainScreen()));
+        })],
+      ));
+                                          }else{
                                       Navigator.of(context).push(
                                           MaterialPageRoute(
                                               builder: (context) =>
@@ -484,6 +625,7 @@ class Constants {
                                                       unit: findUnitOfQuestion(
                                                           question:
                                                               question))));
+                            }
                                     },
                                   )
                                 ],

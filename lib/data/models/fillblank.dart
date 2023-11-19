@@ -4,11 +4,11 @@ class FillBlank extends Question {
   String beforeBlank;
   String afterBlank;
   String answer; // Answer of The Blank
-  String? imageLink;
+  String? imageName;
 
   FillBlank(
       {required this.beforeBlank,
       required this.afterBlank,
       required this.answer,
-      this.imageLink});
+      this.imageName});
 }

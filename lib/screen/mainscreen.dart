@@ -2,12 +2,13 @@ import 'dart:io';
 
 import 'package:almanca/data/constants.dart';
 import 'package:almanca/screen/questionscreen.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class MainScreen extends StatefulWidget {
-  const MainScreen({super.key});
+  MainScreen({super.key});
 
   @override
   State<MainScreen> createState() => _MainScreenState();
@@ -15,18 +16,23 @@ class MainScreen extends StatefulWidget {
 
 class _MainScreenState extends State<MainScreen> {
   @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+  }
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
-      endDrawer:Drawer(
+      endDrawer: Drawer(
         width: 450.w,
         child: Column(
           children: [
-                        Padding(
+            Padding(
               padding: const EdgeInsets.all(16.0),
               child: GestureDetector(
                 child: Image.asset(
-                  "assets/images/buymeacoffee.png",
-                  width: 350.w,
+                  "assets/images/drawer/buymeacoffee.png",
+                  width: 300.w,
                   height: 100.h,
                   fit: BoxFit.fill,
                 ),
@@ -34,28 +40,75 @@ class _MainScreenState extends State<MainScreen> {
                   const url = "https://buymeacoffee.com/developer86";
                   if (await canLaunchUrl(Uri.parse(url))) {
                     await launchUrl(Uri.parse(url));
-                  } else {
-                    throw 'Could not launch $url';
+                  }
+                },
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: GestureDetector(
+                child: Image.asset(
+                  "assets/images/drawer/codeberg.png",
+                  width: 300.w,
+                  height: 100.h,
+                  fit: BoxFit.fill,
+                ),
+                onTap: () async {
+                  const url =
+                      "https://codeberg.org/outterstellar/deutschLernenQuestions";
+                  if (await canLaunchUrl(Uri.parse(url))) {
+                    await launchUrl(Uri.parse(url));
+                  }
+                },
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: GestureDetector(
+                child: Container(
+                  width: 300.w,
+                  height: 100.h,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(12).w,
+                      border:
+                          Border.all(width: 2.w, color: Constants.mainColor)),
+                  child: Center(
+                      child: Text(
+                    "More On My Website",
+                    style:
+                        TextStyle(color: Constants.mainColor, fontSize: 20.sp),
+                  )),
+                ),
+                onTap: () async {
+                  const url = "https://dogacevcin.com";
+                  if (await canLaunchUrl(Uri.parse(url))) {
+                    await launchUrl(Uri.parse(url));
                   }
                 },
               ),
             ),
             Padding(
               padding: const EdgeInsets.all(32.0),
-              child: Text("Developer : Doğaç Evcin",style: TextStyle(color: Constants.mainColor),),
+              child: Text(
+                "Developer : Doğaç Evcin",
+                style: TextStyle(color: Constants.mainColor),
+              ),
             )
           ],
         ),
       ),
-      appBar:
-          AppBar(backgroundColor: Colors.white, foregroundColor: Constants.mainColor,automaticallyImplyLeading: false,),
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        foregroundColor: Constants.mainColor,
+        automaticallyImplyLeading: false,
+      ),
       body: Stack(
         children: [
           //returnImageForDevice(context: context),
           Image.asset("assets/images/pcmainscreen.jpg",
-        height: Constants.returnDeviceSize(context: context).height,
-        width: Constants.returnDeviceSize(context: context).width,
-        fit: BoxFit.fill),
+              height: Constants.returnDeviceSize(context: context).height,
+              width: Constants.returnDeviceSize(context: context).width,
+              fit: BoxFit.fill),
           returnUnitsForDevice(context: context)
         ],
       ),
@@ -100,8 +153,8 @@ Widget returnUnitsForDevice({required BuildContext context}) {
             padding: const EdgeInsets.all(24.0),
             child: GestureDetector(
               onTap: () {
-                Navigator.of(context).push(
-                    MaterialPageRoute(builder: (context) => QuestionScreen(unit: index+1)));
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => QuestionScreen(unit: index + 1)));
               },
               child: Card(
                 child: Padding(
@@ -136,7 +189,10 @@ List<Widget> returnUnits(
         child: Padding(
           padding: EdgeInsets.all(8.0),
           child: Center(
-              child: Text("Ünite ${i + 1} - ${Constants.unitNameList[i]}",style: TextStyle(color: Constants.mainColor,fontSize: 20.sp),)),
+              child: Text(
+            "Ünite ${i + 1} - ${Constants.unitNameList[i]}",
+            style: TextStyle(color: Constants.mainColor, fontSize: 20.sp),
+          )),
         ),
       ),
     ));
