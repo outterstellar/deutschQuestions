@@ -29,9 +29,9 @@ class _QuestionScreenState extends State<QuestionScreen> {
     unitNum = widget.unit;
     if (Constants.solvedQuestions[unitNum]!.length !=
         Constants.unitQuestionList[unitNum]!.length) {
-          print("Listeler eşit değil");
-        
-          while (true) {
+      print("Listeler eşit değil");
+
+      while (true) {
         selectedQuestion = Constants.unitQuestionList[unitNum]![
             random.nextInt(Constants.unitQuestionList[unitNum]!.length)];
         if (Constants.solvedQuestions[unitNum]!.contains(selectedQuestion)) {
@@ -39,7 +39,7 @@ class _QuestionScreenState extends State<QuestionScreen> {
         } else {
           break;
         }
-        }
+      }
     } else {
       Constants.solvedQuestions[unitNum]!.clear();
       while (true) {
@@ -50,15 +50,16 @@ class _QuestionScreenState extends State<QuestionScreen> {
         } else {
           break;
         }
-        }
+      }
     }
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       endDrawer: Drawer(
-        width: 450.w,
+        width: returnForDeviceType(pc: 450.w, phone: 304.w),
         child: Column(
           children: [
             Padding(
@@ -66,8 +67,8 @@ class _QuestionScreenState extends State<QuestionScreen> {
               child: GestureDetector(
                 child: Image.asset(
                   "assets/images/drawer/buymeacoffee.png",
-                  width: 350.w,
-                  height: 150.h,
+                  width: returnForDeviceType(pc: 300.w, phone: 222.w),
+                  height: returnForDeviceType(pc: 100.h, phone: 80.h),
                   fit: BoxFit.fill,
                 ),
                 onTap: () async {
@@ -83,8 +84,8 @@ class _QuestionScreenState extends State<QuestionScreen> {
               child: GestureDetector(
                 child: Image.asset(
                   "assets/images/drawer/github.png",
-                  width: 300.w,
-                  height: 100.h,
+                  width: returnForDeviceType(pc: 300.w, phone: 222.w),
+                  height: returnForDeviceType(pc: 105.h, phone: 80.h),
                   fit: BoxFit.fill,
                 ),
                 onTap: () async {
@@ -100,8 +101,8 @@ class _QuestionScreenState extends State<QuestionScreen> {
               padding: const EdgeInsets.all(16.0),
               child: GestureDetector(
                 child: Container(
-                  width: 300.w,
-                  height: 100.h,
+                  width: returnForDeviceType(pc: 300.w, phone: 222.w),
+                  height: returnForDeviceType(pc: 100.h, phone: 80.h),
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(12).w,
                       border:
@@ -122,7 +123,7 @@ class _QuestionScreenState extends State<QuestionScreen> {
               ),
             ),
             Padding(
-              padding: EdgeInsets.all(32.0),
+              padding: const EdgeInsets.all(32.0),
               child: Text(
                 "Developer : Doğaç Evcin",
                 style: TextStyle(color: Constants.mainColor),
@@ -135,6 +136,9 @@ class _QuestionScreenState extends State<QuestionScreen> {
           backgroundColor: Colors.white,
           foregroundColor: Constants.mainColor,
           automaticallyImplyLeading: false,
+          title: Text("Deutsch mit Fragen",
+              style: TextStyle(color: Constants.mainColor)),
+          centerTitle: true,
           leading: IconButton(
             icon: Icon(Icons.arrow_back),
             onPressed: () {

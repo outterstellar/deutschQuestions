@@ -20,11 +20,13 @@ class _MainScreenState extends State<MainScreen> {
     // TODO: implement initState
     super.initState();
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       endDrawer: Drawer(
-        width: 450.w,
+        width: returnForDeviceType(pc: 450.w, phone: 304.w),
         child: Column(
           children: [
             Padding(
@@ -32,8 +34,8 @@ class _MainScreenState extends State<MainScreen> {
               child: GestureDetector(
                 child: Image.asset(
                   "assets/images/drawer/buymeacoffee.png",
-                  width: 300.w,
-                  height: 100.h,
+                  width: returnForDeviceType(pc: 300.w, phone: 222.w),
+                  height: returnForDeviceType(pc: 100.h, phone: 80.h),
                   fit: BoxFit.fill,
                 ),
                 onTap: () async {
@@ -49,8 +51,8 @@ class _MainScreenState extends State<MainScreen> {
               child: GestureDetector(
                 child: Image.asset(
                   "assets/images/drawer/github.png",
-                  width: 350.w,
-                  height: 150.h,
+                  width: returnForDeviceType(pc: 300.w, phone: 222.w),
+                  height: returnForDeviceType(pc: 105.h, phone: 80.h),
                   fit: BoxFit.fill,
                 ),
                 onTap: () async {
@@ -66,8 +68,8 @@ class _MainScreenState extends State<MainScreen> {
               padding: const EdgeInsets.all(16.0),
               child: GestureDetector(
                 child: Container(
-                  width: 300.w,
-                  height: 100.h,
+                  width: returnForDeviceType(pc: 300.w, phone: 222.w),
+                  height: returnForDeviceType(pc: 100.h, phone: 80.h),
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(12).w,
                       border:
@@ -101,14 +103,13 @@ class _MainScreenState extends State<MainScreen> {
         backgroundColor: Colors.white,
         foregroundColor: Constants.mainColor,
         automaticallyImplyLeading: false,
+        title: Text("Deutsch mit Fragen",
+            style: TextStyle(color: Constants.mainColor)),
+        centerTitle: true,
       ),
       body: Stack(
         children: [
-          //returnImageForDevice(context: context),
-          Image.asset("assets/images/pcmainscreen.jpg",
-              height: Constants.returnDeviceSize(context: context).height,
-              width: Constants.returnDeviceSize(context: context).width,
-              fit: BoxFit.fill),
+          returnImageForDevice(context: context),
           returnUnitsForDevice(context: context)
         ],
       ),
@@ -123,7 +124,7 @@ Image returnImageForDevice({required BuildContext context}) {
         width: Constants.returnDeviceSize(context: context).width,
         fit: BoxFit.fill);
   } else {
-    return Image.asset("assets/images/mobilemainscreen.jpg",
+    return Image.asset("assets/images/phonemainscreen.jpg",
         height: MediaQuery.of(context).size.height,
         width: MediaQuery.of(context).size.width,
         fit: BoxFit.fill);
@@ -157,11 +158,16 @@ Widget returnUnitsForDevice({required BuildContext context}) {
                     builder: (context) => QuestionScreen(unit: index + 1)));
               },
               child: Card(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(15.0),
+                ),
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Center(
                       child: Text(
-                          "Ünite ${index + 1} - ${Constants.unitNameList[index]}")),
+                    "Ünite ${index + 1} - ${Constants.unitNameList[index]}",
+                    style: TextStyle(color: Constants.mainColor),
+                  )),
                 ),
               ),
             ),
@@ -198,4 +204,12 @@ List<Widget> returnUnits(
     ));
   }
   return list;
+}
+
+returnForDeviceType({required Object pc, required Object phone}) {
+  if (Platform.isLinux || Platform.isMacOS || Platform.isWindows) {
+    return pc;
+  } else {
+    return phone;
+  }
 }
